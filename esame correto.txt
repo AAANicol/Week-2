@@ -1,0 +1,117 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+void menu ();
+void moltiplica ();
+void dividi ();
+void ins_string();
+
+
+int main () 
+
+{
+        char scelta_iniziale = {'\0'};
+        char scelta_finale = {'\0'};
+        bool s;
+        do{
+           menu ();
+                  do{
+                     scanf ("%c", &scelta_iniziale);
+                     rewind(stdin);
+                     if(scelta_iniziale=='a')
+                        scelta_iniziale='A';
+                     if(scelta_iniziale=='b')
+                        scelta_iniziale='B';
+                     if(scelta_iniziale=='c')
+                        scelta_iniziale='C';
+                     if(scelta_iniziale=='d')
+                        scelta_iniziale='D';
+                     switch (scelta_iniziale)
+                                            {
+
+                                                case 'A':{
+                                                        moltiplica();
+                                                        s=false;
+                                                        break;}
+                                                case 'B':{
+                                                        dividi();
+                                                        s=false;
+                                                        break;}
+                                                case 'C':{
+                                                         ins_string();
+                                                         s=false;
+                                                         break;}
+                                                case 'D':{
+                                                         printf ("Grazie per l'uso del programma ");
+                                                         return 0;}
+                                                default:{
+                                                         s=true;
+                                                         printf("Seleziona una lettera per l'operazione che vuoi fare\n");
+                                                        }
+                                                      }
+                                                }while (s);
+                                                           printf (" Vuoi fare un altra operazione?\nS >>SI\n");
+                                                           scanf ("%c", &scelta_finale);
+                                                           rewind (stdin);
+
+               }while (scelta_finale=='S');
+                      printf("Si parte  ");
+                      rewind (stdin);
+
+return 0; 
+
+}
+
+
+void menu ()
+{
+        printf ("Benvenuto, sono un assitente digitale, posso aiutarti a sbrigare alcuni compiti\n");
+        printf ("Come posso aiutarti?\n");
+        printf ("A >> Moltiplicare due numeri\nB >> Dividere due numeri\nC >> Inserire una stringa\nD >> Exit\n");
+ 
+}
+
+
+void moltiplica ()
+{
+        int  a,b = 0;
+        int prodotto;
+        printf ("Inserisci i due numeri da moltiplicare:");
+        scanf ("%d", &a);
+        rewind (stdin);
+        scanf ("%d", &b);
+        rewind (stdin);
+        prodotto = a * b;
+
+        printf ("Il prodotto tra %d e %d e': %d", a,b,prodotto);
+}
+
+
+void dividi ()
+{
+        int  a,b = 0;
+        printf ("Inserisci il numeratore:");
+        scanf ("%d", &a);
+        printf ("Inserisci il denomeratore:");
+        scanf ("%d", &b);
+
+        int divisione = a / b;
+
+        printf ("La divisione tra %d e %d e': %d", a,b,divisione);
+}
+
+
+
+
+
+void ins_string () 
+{
+        char stringa[10];
+        printf ("Inserisci la stringa:");
+        scanf ("%s", &stringa);
+        printf ("Ti consiglio di selezionare una lettera tra quelle che ti ho datto a disposizione.  ");
+}
+
+
+
